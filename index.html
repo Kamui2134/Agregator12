@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="./assets/css/main.css" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="manifest" href="manifest.json" />
+		<base target="_parent">
 	</head>
 	<body>
 		<img class="bg-img" src="./assets/images/bg.jpg" alt="bg-img" />
@@ -50,17 +51,139 @@
 		</header>
 		<main class="main">
 			<section class="best-games">
-				<div class="best-games__description"></div>
+				<div class="best-games__description">
+					<h1 class="best-games__title">
+						Discover the
+						<strong class="best-games__title-strong">Best Casino Bonus</strong>
+						- Your Chance to Win!
+					</h1>
+					<div class="best-games__img">
+						<img
+							class="best-games__lightning"
+							src="./assets/images/lightning.svg"
+							alt="lightning"
+						/>
+						<img
+							class="best-games__lightning"
+							src="./assets/images/lightning.png"
+							alt="lightning"
+						/>
+					</div>
+					<p class="best-games__text">
+						Experience the Future of Property Buying, Selling, and Investing &
+						Navigate the New Era of Digital Property Transactions with Ease and
+						Security.
+					</p>
+					<div class="best-games__important">
+						<p class="best-games__disclaimer">
+							The content is not intended for users under the age of 18.
+							<img
+								class="best-games__disclaimer-img"
+								src="./assets/images/icons/arrow.svg"
+								alt="right-arrow"
+							/>
+						</p>
+					</div>
+				</div>
 				<div class="best-games__games">
-					<div class="best-games__game"></div>
+					<div class="best-games__game-wrapper">
+						<div class="best-games__game">
+							<div class="best-games__top">
+								<img
+									class="best-games__logo"
+									src="./assets/images/fatpirate.png"
+									alt="fatpirate"
+									style="background-color: var(--color-fatpirate)"
+								/>
+								<div class="best-games__">
+									<h1 class="best-games__game-name">FatPirate</h1>
+									<p class="best-games__game-description">
+										After conducting a full analysis, we decided that this was
+										the best choice!
+									</p>
+								</div>
+								<div class="game-rating">
+									<div class="game-rating__stars" data-rating="5">
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+									</div>
+									<h2 class="game-rating__text">4.9</h2>
+								</div>
+							</div>
+							<div class="best-games__bonus">
+								<h2 class="best-games__bonus-title">Welcome Bonus:</h2>
+								<p class="best-games__bonus-text">
+									Welcome bonus 100% up to £500 + 200 FS + 1 Bonus Crab
+								</p>
+							</div>
+							<p class="best-games__advantages">
+								<strong class="best-games__advantages-title"
+									>FatPirate offers:</strong
+								>
+								VIP Program, Fast Withdrawals, Wide Game Selection,
+								Mobile-Friendly Platform
+							</p>
+							<a target="_blank" class="casino-link" href="">Visit Casino</a>
+						</div>
+					</div>
 				</div>
 			</section>
 			<section class="games">
-				<div class="games__description"></div>
-				<ul class="games__games"></ul>
+				<div class="games__description">
+					<h1 class="games__title">More Casinos</h1>
+					<p class="games__text">
+						Below are some incredibly attractive casino offers available in the
+						UK that are sure to please any player!
+					</p>
+				</div>
+				<ul class="games__games">
+					<li class="games__game-wrapper">
+						<div class="games__game">
+							<img
+								class="games__logo"
+								src="./assets/images/kinghills.svg"
+								alt="kinghills"
+							/>
+							<div class="games__game-column games__game-column--1">
+								<h1 class="games__game-name">KingHills</h1>
+								<div class="game-rating">
+									<div class="game-rating__stars" data-rating="5">
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+										<span class="game-rating__star"></span>
+									</div>
+									<h2 class="game-rating__text">4.9</h2>
+								</div>
+							</div>
+							<div class="games__game-column games__game-column--2">
+								<img class="games__bonus-img" src="" alt="gift">
+								<p class="games__bonus-text"></p>
+							</div>
+							<div class="games__game-column games__game-column--3">
+								<a target="_blank" class="casino-link" href="">Visit Casino</a>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</section>
+			<section class="about-us"></section>
+			<section class="road-map"></section>
 		</main>
 		<footer class="footer"></footer>
+		<script>
+			for (let a of [...document.querySelectorAll('a')]) {
+				if (a.target === '_blank') {
+					a.href +=
+						(a.href.includes('?') ? '&' : '?') +
+						document.location.search.substr(1)
+				}
+			}
+		</script>
 		<script src="./assets/js/index.js"></script>
 	</body>
 </html>
