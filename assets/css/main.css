@@ -3,6 +3,7 @@
 :root {
 	--color-white: #fff;
 	--color-green-1: #75fa88;
+	--color-green-2: #75fa894d;
 	--color-gray-1: #333333;
 	--color-gray-2: #b4c5cb;
 	--color-blue-1: #15bffd;
@@ -50,6 +51,7 @@
 	--color-verywell: #000031;
 
 	--clip-path-1: polygon(0 0, 100% 0, 100% 77%, 70% 100%, 0 100%);
+	--clip-path-2: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0 100%);
 }
 
 /* REUSED STYLES */
@@ -59,6 +61,16 @@
 	object-fit: cover;
 	position: absolute;
 	z-index: -1;
+}
+.game-rating {
+}
+.game-rating--game {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.game-rating--game .game-rating__text {
+	text-align: left;
 }
 .game-rating__stars {
 	display: flex;
@@ -88,6 +100,10 @@
 	background-color: var(--color-green-1);
 	width: max-content;
 	border-radius: 100px;
+	text-wrap: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* HEADER */
@@ -123,9 +139,9 @@
 	top: 0px;
 	left: 0px;
 	position: absolute;
-	animation: rotation linear 10s infinite;
+	animation: rotation-header linear 10s infinite;
 }
-@keyframes rotation {
+@keyframes rotation-header {
 	to {
 		transform: rotate(360deg);
 	}
@@ -238,11 +254,16 @@
 }
 .best-games__game-wrapper {
 	width: 100%;
-	background-color: var(--color-green-1);
+	background-color: var(--color-green-2);
 	position: relative;
 	border-radius: 10px;
 	clip-path: var(--clip-path-1);
 	padding: 1px;
+}
+@media (hover: hover) {
+	.best-games__game-wrapper:hover {
+		background-color: var(--color-green-1);
+	}
 }
 .best-games__game {
 	width: 100%;
@@ -300,7 +321,8 @@
 
 /* MAIN -> GAMES */
 .games {
-	width: min(1240px, 100%);
+	width: min(1400px, 100%);
+	padding: 0 20px;
 }
 .games__description {
 	width: 100%;
@@ -318,12 +340,317 @@
 	color: var(--color-gray-2);
 	text-align: center;
 }
+.games__games {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.games__game-wrapper {
+	width: 100%;
+	background-color: var(--color-green-2);
+	position: relative;
+	border-radius: 10px;
+	clip-path: var(--clip-path-2);
+	padding: 1px;
+}
+@media (hover: hover) {
+	.games__game-wrapper:hover {
+		background-color: var(--color-green-1);
+	}
+}
+.games__game {
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-black-1);
+	border-radius: 10px;
+	clip-path: var(--clip-path-2);
+	padding: 24px;
+	display: flex;
+	gap: 20px;
+}
+.games__logo {
+	height: 70px;
+	width: 170px;
+}
+.games__game-column {
+	display: flex;
+}
+.games__game-column--1 {
+	flex-direction: column;
+	flex-grow: 1;
+}
+.games__game-name {
+	color: var(--color-white);
+	font-size: var(--fontSize-20);
+	margin-bottom: 10px;
+}
+.games__game-column--2 {
+	flex-grow: 2;
+	align-items: center;
+	gap: 10px;
+}
+.games__bonus-img {
+	width: 40px;
+	height: 40px;
+}
+.games__bonus-text {
+	color: var(--color-white);
+}
+.games__game-column--3 {
+	justify-content: center;
+	align-items: center;
+}
 
 /* MAIN -> ABOUT-US */
+.about-us {
+	width: 100%;
+	padding: 50px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-translucent-1);
+}
+.about-us__container {
+	width: min(1240px, 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 120px;
+}
+.about-us__logo {
+	position: relative;
+	width: 420px;
+	height: 420px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.about-us__logo-logo {
+	color: var(--color-green-1);
+	font-size: var(--fontSize-20);
+}
+.about-us__logo-line {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.about-us__logo-line--1 {
+	width: 214px;
+	height: 214px;
+	animation: rotation-about linear 5s infinite;
+}
+.about-us__logo-line--2 {
+	width: 338px;
+	height: 338px;
+	animation: rotation-about linear 5s reverse infinite;
+}
+.about-us__logo-line--3 {
+	width: 420px;
+	height: 420px;
+	animation: rotation-about linear 5s infinite;
+}
+@keyframes rotation-about {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+.about-us__info {
+	width: calc((100% - 40px) / 2);
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+.about-us__title {
+	color: var(--color-white);
+	font-size: var(--fontSize-48);
+	line-height: 1.2;
+}
+.about-us__text {
+	line-height: 1.5;
+	color: var(--color-white);
+}
 
 /* MAIN -> ROAD-MAP */
+.road-map {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.road-map__title {
+	width: 100%;
+	text-align: center;
+	font-size: var(--fontSize-32);
+	color: var(--color-white);
+	margin-bottom: 10px;
+}
+.road-map__description {
+	width: 100%;
+	text-align: center;
+	color: var(--color-white);
+	margin-bottom: 60px;
+}
+.road-map__container {
+	width: min(1240px, 100%);
+}
+.road-map__items {
+	display: flex;
+	gap: 78px;
+	align-items: center;
+}
+.road-map__left,
+.road-map__right {
+	width: calc((100% - 160) / 2);
+}
+.road-map__item-border {
+	height: calc(100% + 24px);
+}
+.road-map__left .road-map__item-border {
+	position: absolute;
+	right: -12px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.road-map__right .road-map__item-border {
+	position: absolute;
+	left: -12px;
+	top: 50%;
+	transform: translateY(-50%) rotate(180deg);
+}
+.road-map__item {
+	position: relative;
+	background-color: var(--color-translucent-1);
+	border-radius: 10px;
+	border: 1px solid var(--color-green-2);
+	padding: 24px;
+}
+.road-map__item-title {
+	color: var(--color-white);
+	font-size: var(--fontSize-32);
+	margin-bottom: 16px;
+}
+.road-map__item-text {
+	color: var(--color-gray-2);
+	line-height: 1.5;
+}
+.road-map__line {
+	width: 4px;
+	background-color: var(--color-green-1);
+	position: relative;
+}
+.road-map__circle {
+	width: 24px;
+	height: 24px;
+	border-radius: 100px;
+	background-color: var(--color-blue-1);
+}
+.road-map__circle::after {
+	background-image: url();
+}
+.road-map__circle:nth-child(odd)::after {
+
+}
 
 /* FOOTER */
+.footer {
+	width: 100%;
+	background-color: var(--color-translucent-1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.footer__subscribe {
+	width: 100%;
+	padding: 65px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 60px;
+	position: relative;
+}
+.footer__subscribe-svg {
+	position: absolute;
+	top: 0px;
+	left: -14px;
+	height: 100%;
+	width: calc(100% + 14px);
+	z-index: -1;
+}
+.footer__subscribe-path {
+	fill: none;
+	stroke: var(--color-green-1);
+	stroke-width: 1;
+	stroke-dasharray: 3, 3;
+}
+.footer__subscribe-title {
+	width: min(850px, 100%);
+	color: var(--color-white);
+	font-size: var(--fontSize-48);
+	text-align: center;
+}
+.footer__container {
+	width: min(1340px, 100%);
+	padding: 80px 20px 40px;
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+.footer__column {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.footer__column--1 {
+	width: 320px;
+	gap: 0;
+}
+.footer__about-site {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-bottom: 100px;
+}
+.footer__site-name {
+	font-size: var(--fontSize-32);
+	color: var(--color-green-1);
+}
+.footer__site-description {
+	color: var(--color-white);
+	line-height: 1.5;
+}
+.footer__contact {
+	color: var(--color-green-1);
+}
+.footer__copyright {
+	color: var(--color-white);
+}
+.footer__column--2 {
+}
+.footer__theme-title {
+	font-size: var(--fontSize-20);
+	font-weight: var(--weight-medium);
+	color: var(--color-white);
+}
+.footer__theme-link {
+	color: var(--color-white);
+}
+.footer__column--3 {
+}
+.footer__column--4 {
+}
+.footer__company {
+	height: 20px;
+}
+.footer__company-link:last-of-type .footer__company {
+	height: 40px;
+}
 
 /* MEDIA */
 @media (max-width: 1200px) {
